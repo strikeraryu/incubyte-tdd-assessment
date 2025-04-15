@@ -5,6 +5,8 @@ class StringCalculator
   def self.add(input)
     raise ArgumentError unless input.is_a? String
 
-    0 if input.nil? || input.empty?
+    return 0 if input.nil? || input.empty?
+
+    input.to_i
   end
 end
