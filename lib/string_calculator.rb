@@ -26,12 +26,15 @@ class StringCalculator
       input = numbers_string
     end
 
+    input.split(/#{delimiter_regex(delimiters)}|\n/).map(&:to_i)
+  end
+
+  def self.delimiter_regex(delimiters)
     delimiters = delimiters.to_a.compact.reject(&:empty?)
     delimiters = [DEFAULT_DELIMITER] if delimiters.to_a.compact.empty?
 
-    delimiter_regex = delimiters.map { |d| Regexp.escape(d) }.join('|')
-    input.split(/#{delimiter_regex}|\n/).map(&:to_i)
+    delimiters.map { |d| Regexp.escape(d) }.join('|')
   end
 
-  private_class_method :parse_numbers
+  private_class_method :delimiter_regex, :parse_numbers
 end
