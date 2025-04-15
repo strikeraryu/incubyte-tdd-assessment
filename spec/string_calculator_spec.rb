@@ -21,5 +21,11 @@ RSpec.describe StringCalculator do
         expect { StringCalculator.add([]) }.to raise_error(ArgumentError)
       end
     end
+
+    context 'when integer is passed' do
+      it 'should raise an ArgumentError' do
+        expect { StringCalculator.add(1) }.to raise_error(ArgumentError)
+      end
+    end
   end
 end
