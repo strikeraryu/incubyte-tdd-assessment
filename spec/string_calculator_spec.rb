@@ -15,5 +15,11 @@ RSpec.describe StringCalculator do
         expect(StringCalculator.add('')).to eq(0)
       end
     end
+
+    context 'when array is passed' do
+      it 'should raise an ArgumentError' do
+        expect { StringCalculator.add([]) }.to raise_error(ArgumentError)
+      end
+    end
   end
 end
