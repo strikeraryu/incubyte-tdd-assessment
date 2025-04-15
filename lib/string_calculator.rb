@@ -22,7 +22,9 @@ class StringCalculator
 
     if input.start_with?('//')
       delimiter_line, numbers_string = input.split("\n", 2)
-      delimiter = delimiter_line[2]
+      match = delimiter_line.match(%r{\A//\[(.+)\]})
+      delimiter = match ? match[1] : delimiter_line[2]
+
       input = numbers_string
     end
 
