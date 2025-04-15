@@ -9,7 +9,7 @@ class StringCalculator
 
     return 0 if input.nil? || input.empty?
 
-    numbers = parse_numbers(input)
+    numbers = parse_numbers(input).select { |number| number <= 1000 }
     negative_numbers = numbers.select(&:negative?)
 
     raise StandardError, "negatives not allowed: #{negative_numbers.join(', ')}" if negative_numbers.any?
