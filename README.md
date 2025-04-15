@@ -16,6 +16,11 @@ docker-compose up --build
 docker-compose run --rm app
 ```
 
+## Library
+### StringCalculator (./lib/string_calculator.rb)
+#### Class Methods
+- add(<string>) - returns the sum of the numbers in the string delimited by comma or new line (supports custom delimiters)
+
 ## Folder Structure
 ```
 .
