@@ -27,5 +27,11 @@ RSpec.describe StringCalculator do
         expect { StringCalculator.add(1) }.to raise_error(ArgumentError)
       end
     end
+
+    context 'when single integer is passed' do
+      it 'should return the integer' do
+        expect(StringCalculator.add('1')).to eq(1)
+      end
+    end
   end
 end
