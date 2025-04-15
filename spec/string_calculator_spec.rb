@@ -51,5 +51,11 @@ RSpec.describe StringCalculator do
         expect(StringCalculator.add("//;\n1;2")).to eq(3)
       end
     end
+
+    context 'when custom delimiter is provided and newline is used as delimiter' do
+      it 'uses the custom delimiter to parse numbers' do
+        expect(StringCalculator.add("//;\n1;2\n3")).to eq(6)
+      end
+    end
   end
 end
