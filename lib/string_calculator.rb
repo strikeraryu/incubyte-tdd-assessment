@@ -18,8 +18,6 @@ class StringCalculator
   end
 
   def self.parse_numbers(input)
-    delimiters = [DEFAULT_DELIMITER]
-
     if input.start_with?('//')
       delimiter_line, numbers_string = input.split("\n", 2)
       delimiters = delimiter_line.scan(/\[(.*?)\]/).flatten
@@ -27,6 +25,8 @@ class StringCalculator
 
       input = numbers_string
     end
+
+    delimiters = [DEFAULT_DELIMITER] if delimiters.to_a.compact.empty?
 
     delimiter_regex = delimiters.map { |d| Regexp.escape(d) }.join('|')
     input.split(/#{delimiter_regex}|\n/).map(&:to_i)
