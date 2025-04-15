@@ -10,7 +10,7 @@ class StringCalculator
     if input.start_with?('//')
       delimiter_line, numbers_string = input.split("\n", 2)
       custom_delimiter = delimiter_line[2]
-      numbers = numbers_string.split(custom_delimiter).map(&:to_i)
+      numbers = numbers_string.split(/#{Regexp.escape(custom_delimiter)}|\n/).map(&:to_i)
     else
       numbers = input.split(/[,\n]/).map(&:to_i)
     end
