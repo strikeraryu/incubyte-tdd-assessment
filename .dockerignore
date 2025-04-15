@@ -1,0 +1,7 @@
+.git
+log
+tmp
+spec/tmp
+*.swp
+*.swo
+*.DS_Store
