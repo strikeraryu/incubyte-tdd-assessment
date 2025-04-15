@@ -26,6 +26,7 @@ class StringCalculator
       input = numbers_string
     end
 
+    delimiters = delimiters.to_a.compact.reject(&:empty?)
     delimiters = [DEFAULT_DELIMITER] if delimiters.to_a.compact.empty?
 
     delimiter_regex = delimiters.map { |d| Regexp.escape(d) }.join('|')
