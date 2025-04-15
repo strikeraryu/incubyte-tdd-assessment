@@ -81,5 +81,11 @@ RSpec.describe StringCalculator do
         expect(StringCalculator.add("//[***][%]\n1***2%3")).to eq(6)
       end
     end
+
+    context 'when empty delimiter is passed' do
+      it 'should uses the default delimiter' do
+        expect(StringCalculator.add("//\n1,2,10")).to eq(13)
+      end
+    end
   end
 end
