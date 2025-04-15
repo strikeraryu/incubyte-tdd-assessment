@@ -33,5 +33,11 @@ RSpec.describe StringCalculator do
         expect(StringCalculator.add('1')).to eq(1)
       end
     end
+
+    context 'when comma-separated numbers are passed' do
+      it 'returns their sum' do
+        expect(StringCalculator.add('1,2,3')).to eq(6)
+      end
+    end
   end
 end
