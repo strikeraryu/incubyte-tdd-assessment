@@ -7,7 +7,13 @@ class StringCalculator
 
     return 0 if input.nil? || input.empty?
 
-    numbers = input.split(/[,\n]/).map(&:to_i)
+    if input.start_with?('//')
+      delimiter_line, numbers_string = input.split("\n", 2)
+      custom_delimiter = delimiter_line[2]
+      numbers = numbers_string.split(custom_delimiter).map(&:to_i)
+    else
+      numbers = input.split(/[,\n]/).map(&:to_i)
+    end
 
     numbers.inject(:+)
   end
