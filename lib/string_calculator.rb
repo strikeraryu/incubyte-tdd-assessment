@@ -7,6 +7,8 @@ class StringCalculator
 
     return 0 if input.nil? || input.empty?
 
-    input.to_i
+    numbers = input.split(',').map(&:to_i)
+
+    numbers.inject(:+)
   end
 end
