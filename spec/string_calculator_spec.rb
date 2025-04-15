@@ -35,31 +35,31 @@ RSpec.describe StringCalculator do
     end
 
     context 'when comma-separated numbers are passed' do
-      it 'returns their sum' do
+      it 'should returns their sum' do
         expect(StringCalculator.add('1,2,3')).to eq(6)
       end
     end
 
     context 'when newline is used as delimiter' do
-      it 'returns the sum' do
+      it 'should returns the sum' do
         expect(StringCalculator.add("1\n2,3")).to eq(6)
       end
     end
 
     context 'when custom delimiter is provided' do
-      it 'uses the custom delimiter to parse numbers' do
+      it 'should uses the custom delimiter to parse numbers' do
         expect(StringCalculator.add("//;\n1;2")).to eq(3)
       end
     end
 
     context 'when custom delimiter is provided and newline is used as delimiter' do
-      it 'uses the custom delimiter to parse numbers' do
+      it 'should uses the custom delimiter to parse numbers' do
         expect(StringCalculator.add("//;\n1;2\n3")).to eq(6)
       end
     end
 
     context 'when negative numbers are passed' do
-      it 'raises an exception' do
+      it 'should raises an exception' do
         expect { StringCalculator.add('-1,2,-3') }.to raise_error(StandardError, 'negatives not allowed: -1, -3')
       end
     end
